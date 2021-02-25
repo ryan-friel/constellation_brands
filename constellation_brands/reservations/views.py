@@ -4,6 +4,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 from .models import Reserveration
 from .forms import ReservationForm
@@ -55,7 +56,7 @@ class DetailReservation(LoginRequiredMixin, DetailView):
 
 
 class DeleteReservation(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
-    template_name = "reserveations/delete.html"
+    template_name = "reservations/delete.html"
     model = Reserveration
     success_url = reverse_lazy("reservations:home")
     success_message = "Your selected reservation has been deleted."
