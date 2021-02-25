@@ -10,3 +10,7 @@ class ReservationForm(forms.ModelForm):
             "reservation_location",
             "reservation_time"
         ]
+        widgets = {
+            'reservation_time': forms.DateInput(attrs={'type': 'date'})
+        }
+
