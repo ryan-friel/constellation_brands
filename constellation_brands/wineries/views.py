@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic.list import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
+from .models import Winery
+
+class Home(LoginRequiredMixin, ListView):
+    template_name = 'wineries/home.html'
+    model = Winery
