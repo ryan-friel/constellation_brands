@@ -1,0 +1,26 @@
+{% extends 'constellation_brands/base.html' %}
+
+{% csrf_token %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="content-selection">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+
+            {{ form|crispy }}
+
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">
+                Create Reservation
+            </button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock content %}

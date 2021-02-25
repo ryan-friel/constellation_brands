@@ -1,0 +1,15 @@
+{% load static %}
+{% extends 'constellation_brands/base.html' %}
+
+{% for winery in wineries %}
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{winery.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{winery.slogan}}</h6>
+            <p class="card-text">{{winery.description}}</p>
+            <a href="{{winery.website}}" class="card-link">Website</a>
+        </div>
+    </div>
+
+{% endfor %}

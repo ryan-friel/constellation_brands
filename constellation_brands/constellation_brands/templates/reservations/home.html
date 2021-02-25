@@ -1,0 +1,35 @@
+{% extends 'constellation_brands/base.html' %}
+
+
+{% block content %}
+
+    {% for object in object_list %}
+
+        <div class="card" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Reservation</h5>
+                <p class="card-text">Location: {{ object.reservation_location.name }}</p>
+                <p class="card-text">Time: {{ object.reservation_time }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Winery Slogan: {{ object.reservation_location.slogan }}</li>
+                <li class="list-group-item">Winery Website: {{ object.reservation_location.website }}</li>
+            </ul>
+            <div class="card-body">
+                <a href="{% url 'reservations:update' object.pk %}" class="btn btn-outline-warning btn-sm" role="button">Update</a>
+                <a href="{% url 'reservations:delete' object.pk %}" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+            </div>
+        </div>
+
+    {% endfor %}
+
+    <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">Create a new reservation?</p>
+            <p class="card-text">
+                <a href="{% url 'reservation:create' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Reservation</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock content %}

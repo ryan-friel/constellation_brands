@@ -1,0 +1,25 @@
+{% extends 'constellation_brands/base.html' %}
+
+{% csrf_token %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Reservation</h5>
+            <p class="card-text">Location: {{ object.reservation_location.name }}</p>
+            <p class="card-text">Time: {{ object.reservation_time }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Winery Slogan: {{ object.reservation_location.slogan }}</li>
+            <li class="list-group-item">Winery Description: {{ object.reservation_location.description }}</li>
+            <li class="list-group-item">Winery Website: {{ object.reservation_location.website }}</li>
+        </ul>
+        <div class="card-body">
+            <a href="{% url 'reservations:update' object.pk %}" class="btn btn-outline-warning btn-sm" role="button">Update</a>
+            <a href="{% url 'reservations:delete' object.pk %}" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+        </div>
+    </div>
+
+{% endblock content %}
