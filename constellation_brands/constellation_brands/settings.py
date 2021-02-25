@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Internal apps
     'wineries',
-    'reservations'
+    'reservations',
 
     # Third party apps
     "allauth",
