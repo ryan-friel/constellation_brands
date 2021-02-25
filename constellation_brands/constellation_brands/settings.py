@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Third party apps
     "allauth",
     "allauth.account",
+    "allauth.socialaccount",
     "crispy_forms",
 ]
 
@@ -91,6 +92,10 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+    "allauth.account.auth_backends.AuthenticationBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -129,3 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+LOGIN_REDIRECT_URL = "/"
