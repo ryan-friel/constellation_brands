@@ -1,15 +1,20 @@
-{% load static %}
 {% extends 'constellation_brands/base.html' %}
+{% load static %}
 
-{% for winery in wineries %}
+{% block content %}
+
+
+{% for object in object_list %}
 
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">{{winery.name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{winery.slogan}}</h6>
-            <p class="card-text">{{winery.description}}</p>
-            <a href="{{winery.website}}" class="card-link">Website</a>
+            <h5 class="card-title">{{object.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{object.slogan}}</h6>
+            <p class="card-text">{{object.description}}</p>
+            <a href="{{object.website}}" class="card-link">Website</a>
         </div>
     </div>
 
 {% endfor %}
+
+{% endblock content %}

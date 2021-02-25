@@ -16,24 +16,28 @@
 
     <body>
 
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
             <a class="navbar-brand" href="https://www.cbrands.com/">
                 <img src="https://res-3.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1468059967/darfogb7qv4nu7q8sdvw.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 Constellation Brands
             </a>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'home' %}"">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{% url 'wineries:home' %}">Wineries</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'reservations:home' %}">Reservations</a>
+                    </li>
+
                 </ul>
-            </div>
 
         </nav>
+
 
         {% block content %}
         {% endblock content %}
